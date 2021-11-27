@@ -1,0 +1,4 @@
+function initScript(){
+    runTree();
+    launchPrompt();
+}

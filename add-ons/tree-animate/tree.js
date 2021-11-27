@@ -13,7 +13,7 @@ var zCamera = -3;
 var rate = 1 / (2 * Math.PI); // every rotation y gets one bigger
 var factor = rate / 3;
 
-function run() {
+function runTree() {
   var ctx = document.getElementById('scene').getContext('2d'),
       spirals = [
         new Spiral({

@@ -3,14 +3,54 @@
     <head>
         <title>Secret Santa</title>
         <link rel="icon" type="image/png" href="images/santa-icon.png" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Extern add-ons -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js" integrity="sha512-14M7CqWNUr6fzrgs9ncNWKdBtLu69HwEWq7J3/dPMUL+za3fBRLJvK6egAu4SSlxCM1apqsbVJHArGLl5fjldw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Add-ons -->
+        <script type="text/javascript" src="participants.js"></script>
         <script src="add-ons/background-snow-fall/snow-fall.js"></script>
         <link href="add-ons/background-snow-fall/snow-fall.css" rel="stylesheet">
         <script src="add-ons/tree-animate/tree.js"></script>
+        <script src="add-ons/prompt/prompt.js"></script>
+        <script src="script.js"></script>
     </head>
-    <body onload="run()">
+    <body onload="initScript()">
         <canvas id="scene" width="500px" height="500px" style="display: block; margin: 0 auto"></canvas>
+        
+        <button type="button" id="toggle-prompt-choice" class="btn btn-primary" data-toggle="modal" data-target="#choicePrompt" style="display: none;"></button>
+        <div class="modal fade" id="choicePrompt" tabindex="-1" role="dialog" aria-labelledby="choicePromptTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="choicePromptTitle">Qui es-tu ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center; font-style: italic;">
+                            <p>Hello toi !</p>
+                            <p>C'est le moment de savoir l'heureux élu à qui tu vas offrir un magnifique cadeau !</p>
+                            <p>Pour cela j'ai besoin de savoir qui tu es.</p>
+                        </div>
+                        <div>
+                            <select class="form-control" id="selectChoicePrompt" style="text-align: center;">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" style="width: 100%;">Go !</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html> 
