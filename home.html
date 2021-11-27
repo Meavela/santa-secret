@@ -24,6 +24,9 @@
     <body onload="initScript()">
         <canvas id="scene" width="500px" height="500px" style="display: block; margin: 0 auto"></canvas>
         
+        <div>
+            <p id="choosen-participant" style="text-align: center;color: white; font-size: 50px;"></p>
+        </div>
         <button type="button" id="toggle-prompt-choice" class="btn btn-primary" data-toggle="modal" data-target="#choicePrompt" style="display: none;"></button>
         <div class="modal fade" id="choicePrompt" tabindex="-1" role="dialog" aria-labelledby="choicePromptTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -46,11 +49,11 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" style="width: 100%;">Go !</button>
+                        <button type="button" id="close-prompt-choice" class="btn btn-secondary" data-dismiss="modal" style="display: none;">Close</button>
+                        <button type="button" class="btn btn-primary" style="width: 100%;" onclick="chooseRandomPeople()">Go !</button>
                     </div>
                 </div>
             </div>
         </div>
-
     </body>
 </html> 
