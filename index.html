@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
     <head>
         <title>Secret Santa</title>
         <link rel="icon" type="image/png" href="images/santa-icon.png" />
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
 
         <!-- Extern add-ons -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,9 +23,9 @@
         <link href="add-ons/background-snow-fall/snow-fall.css" rel="stylesheet">
         <script src="add-ons/tree-animate/tree.js"></script>
         <script src="add-ons/prompt/prompt.js"></script>
-        <script src="script.js"></script>
+        <script type="module" src="script.js"></script>
     </head>
-    <body onload="initScript()">
+    <body>
         <canvas id="scene" width="500px" height="500px" style="display: block; margin: 0 auto"></canvas>
         
         <div>
@@ -50,7 +54,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="close-prompt-choice" class="btn btn-secondary" data-dismiss="modal" style="display: none;">Close</button>
-                        <button type="button" class="btn btn-primary" style="width: 100%;" onclick="chooseRandomPeople()">Go !</button>
+                        <button type="button" class="btn btn-primary" style="width: 100%;" id="choose-button">Go !</button>
                     </div>
                 </div>
             </div>
